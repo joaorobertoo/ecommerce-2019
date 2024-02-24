@@ -1,0 +1,97 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <%@include file="/WEB-INF/jsp/estrutura/ImportBot.jsp"%> 
+    </head>
+    <body>
+        <form:form action="salvarUsuario" commandName="Usuario" class="form-horizontal" method="POST">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Cadastro de Clientes</legend>
+                <div style="background-color: #4ED4E8"></div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <form:label path="nomeUsuario" for="nome">Nome</form:label>
+                    <form:input id="nomeUsuario" type="text" path="nomeUsuario" cssClass="form-control" required="" />
+                    
+                    
+                </div>
+                
+                <div class="form-group">
+                    <form:label path="email" for="email">Email</form:label>
+                    <form:input id="email" type="text" path="email" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+
+               
+
+                <div class="form-group">
+                    <form:label path="cpf" for="cpf">CPF</form:label>
+                    <form:input id="cpf" type="text" path="cpf" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+                
+                <div class="form-group">
+                    <form:label path="senha" for="senha">senha</form:label>
+                    <form:input id="senha" type="password" path="senha" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <form:label path="senha" for="confirmasenha">Confirma senha</form:label>
+                    <form:input id="confirmasenha" type="password" path="senha" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+                
+                <div class="form-group">
+                    <form:label path="estado" for="estado">Estado</form:label>
+                    <form:input id="estado" type="text" path="estado" cssClass="form-control" required=""/> 
+                   
+                    
+                </div>
+
+               <div class="form-group">
+                    <form:label path="cidade" for="cidade">Cidade</form:label>
+                    <form:input id="cidade" type="text" path="cidade" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <form:label path="rua" for="rua">Rua</form:label>
+                    <form:input id="rua" type="text" path="rua" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <form:label path="bairro" for="bairro">Bairro</form:label>
+                    <form:input id="bairro" type="text" path="bairro" cssClass="form-control" required=""/> 
+                    
+                    
+                </div>
+
+                <div class="form-group">
+                    <form:label path="numero" for="numero">Numero</form:label>
+                    <form:input id="numero" type="text" path="numero" cssClass="form-control" required=""/> 
+                                                     
+
+                <!-- Button -->
+                <div class="form-group">
+                    
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Gravar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form:form>
+    </body>
+</html>

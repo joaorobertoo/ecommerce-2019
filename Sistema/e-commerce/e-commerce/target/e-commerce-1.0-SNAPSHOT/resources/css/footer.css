@@ -1,0 +1,28 @@
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer{
+  position: fixed ;
+  bottom :0px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  
+}
+
+.row{
+    margin-right: 0 !important;
+}
+
+.conteudo{
+    margin-bottom: 50px!important;
+}
+
+
+
+
+
+
+
+

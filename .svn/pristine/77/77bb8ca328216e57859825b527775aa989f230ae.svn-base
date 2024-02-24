@@ -1,0 +1,43 @@
+﻿create table usuario
+	(cpf varchar(20),
+	admin boolean not null,
+	nome_usuario varchar(50) not null,
+	email varchar(20) not null unique,
+	estado varchar(20) not null,
+	cidade varchar(50) not null,
+	bairro varchar(20) not null,
+	rua varchar(20) not null,
+	numero integer not null,
+	primary key(cpf)
+	);
+
+create table categoria
+	(id_categoria varchar(20),
+	nome_categoria varchar(20),
+	primary key(id_categoria)
+	);
+
+create table produto
+	(codigo varchar(20),
+	descricao text,
+	imagem bit,
+	nome_produto varchar(50) not null,
+	preco float(8) not null,
+	quantidade_produto integer,
+	id_categoria varchar(20),
+	primary key(codigo),
+	foreign key(id_categoria) references categoria,
+	check (preco > 0),
+	check(quantidade_produto >= 0 )
+	);
+
+create table compra
+	(codigo varchar(20),
+	cpf varchar(20),
+	id_compra varchar(20),
+	quantidade_compra integer,
+	valor float(8),
+	primary key(id_compra),
+	foreign key(cpf) references usuario,
+	foreign key(codigo) references produto
+	);

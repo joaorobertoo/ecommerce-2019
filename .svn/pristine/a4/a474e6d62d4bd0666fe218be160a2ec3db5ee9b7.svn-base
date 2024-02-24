@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript" src="/resources/jss/jquery-3.4.1.js"></script>
+
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="resources/css/footer.css"/>
+
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>

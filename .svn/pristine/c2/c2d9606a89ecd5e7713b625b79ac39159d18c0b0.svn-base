@@ -1,0 +1,81 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <%@include file="/WEB-INF/jsp/estrutura/ImportBot.jsp"%>  
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/editarProdutos.css"/>
+    </head>
+    <body>
+        <div>
+
+            <%@include file="/WEB-INF/jsp/estrutura/header.jsp"%>
+            <div class="container conteudo">
+                <h2>Editar <b>Produtos</b></h2>
+                <form:form action="editarProduto" id="editarProduto" commandName="Produto" method="POST" enctype="multipart/form-data">
+
+                    <div>
+                        <span class="col-md-offset-1">
+                            <img id="imagem" src="RecuperarImagem?codigo=${Produto.codigo}"> 
+                        </span>
+                        <div class="row col-md-offset-4">
+                            <div class="form-group  col-md-3">
+                                <form:label path="codigo" for="codigo">Código</form:label>
+                                <form:input id="codigo" type="text" path="codigo" cssClass="form-control" required="" />
+
+                            </div>
+
+                            <div class="form-group  col-md-6">
+                                <jsp:useBean id="dao" class="DAO.DAOCategoria">
+                                    <form:label path="Categoria" for="categoria">Categoria</form:label>
+                                    <form:select id="categoria"  path="Categoria.idCategoria" cssClass="form-control" > 
+                                        <form:option value="0">--Selecione uma opção--</form:option>
+                                        <form:options items="${dao.retornaCategorias()}" itemValue="idCategoria" itemLabel="nomeCategoria"></form:options>                                                                   
+                                    </form:select>
+                                </jsp:useBean>
+                            </div>
+                        </div>
+                        <div class="row col-md-offset-4">
+                            <div class="form-group  col-md-3">
+                                <form:label path="nomeProduto" for="nomeProduto">Nome</form:label>
+                                <form:input id="nomeProduto" type="text" path="nomeProduto" cssClass="form-control" required="required" />
+
+                            </div>
+                            <div class="form-group  col-md-3">
+                                <form:label path="preco" for="preco">Preço</form:label>
+                                <form:input id="preco"  path="preco" cssClass="form-control" required="" />
+
+                            </div>
+                            <div class="form-group  col-md-3">
+                                <form:label path="quantidadeProduto" for="quantidadeProduto">Quantidade</form:label>
+                                <form:input id="quantidadeProduto" type="text" path="quantidadeProduto" cssClass="form-control"  />
+
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="form-group col-md-10">
+                            <form:label path="descricao" for="descricao">Descrição</form:label>
+                            <form:textarea id="descricao" type="text" path="descricao" cssClass="form-control"  />
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input id="imagem" type="file" name="file" cssClass="form-control" name="file"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-4 col-md-offset-5">
+                            <button  class="btn btn-primary" >Gravar</button>
+<!--                            <button action="excluir" class="btn btn-danger excluir" >Excluir</button>-->
+                        </div>
+
+                    </div>
+                </form:form>
+
+            </div>
+            <%@include file="/WEB-INF/jsp/estrutura/footer.jsp"%>   
+        </div>
+    </body>
+
+</html>

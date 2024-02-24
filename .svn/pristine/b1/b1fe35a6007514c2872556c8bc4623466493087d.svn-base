@@ -1,0 +1,18 @@
+$(document).ready(function(){
+    $(".form-check-input").click(function(){
+        var valores_cat = [];
+        $(".form-check-input:checked").each(function(i){
+          alert($(this).val()); 
+          valores_cat[i] = $(this).val();
+       }); 
+       alert(valores_cat);
+       
+       $.ajax({
+           method: "POST",
+           url: "filtrarPorCategoria",
+           data: {"categorias" : valores_cat.toString()},
+           dataType: "text"
+       });
+    });
+    
+});

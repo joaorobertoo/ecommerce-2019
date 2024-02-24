@@ -1,0 +1,26 @@
+
+$(document).ready(function(){
+    
+    
+    $("#editarProduto").submit(function(e){
+        
+        
+        if($("#quantidadeProduto").val() < 0) {
+            $("#quantidadeProduto").css("border-color", "red");
+            alert("Insira uma quantidade positiva!");            
+            e.preventDefault(); 
+        } 
+        if($("#preco").val() < 0) {
+            $("#preco").css("border-color", "red");
+            alert("Insira um preço positivo!");
+            e.preventDefault(); 
+        }   var cond=$("#quantidadeProduto").val();
+//        if(Number.isInteger(cond)== false){
+//            $("#quantidadeProduto").css("border-color", "red");
+//            alert("Insira uma quantidade inteira!");            
+//            e.preventDefault(); 
+//        }
+        
+    });
+    
+    });

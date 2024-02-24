@@ -1,0 +1,40 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<nav class="navbar navbar-inverse navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index"><b>Vende Tudo</b></a>
+        </div>
+
+
+        <c:choose>
+            <c:when test="${sessionScope.usuarioLogado.nomeUsuario==null}">
+                <div class="row col-md-offset-9">
+                    <div class="col-md-offset-24">
+                        <a href="login"><button class="btn navbar-btn">Login</button></a>
+                    </div>
+                </div>
+            </c:when>
+            <c:otherwise>
+
+                <span class=" nav navbar-nav nav" style="color:#ffc000;font-weight: bold; margin-top: 15px">Bem vindo, ${sessionScope.usuarioLogado.nomeUsuario}.</span>
+                <div class="row col-md-offset-8">
+                    <c:choose>
+                        <c:when test="${sessionScope.usuarioLogado.admin==false}">
+                            <span class="nav navbar-nav" style="margin-right: 5px"> <a href="editarUsuarios?cpf=${usuarioLogado.cpf}" class=" btn navbar-btn">Meus dados</a></span>
+                            <span class="nav navbar-nav" style="margin-right: 5px"> <a href="historicoDeCompras" class=" btn navbar-btn">Histórico de compas</a></span>
+                        </c:when>
+                        <c:otherwise>
+                            
+                            <span class="nav navbar-nav" style="margin-right: 5px"> <a href="cadastroProdutos"><button class=" btn navbar-btn">Cadastrar produtos</button></a></span>
+                            <span class="nav navbar-nav" style="margin-right: 5px"> <a href="listaProdutos"><button class=" btn navbar-btn">Visualizar produtos</button></a></span>
+                        </c:otherwise>
+                    </c:choose>
+                    <form:form action="efetuaLogout" id="efetuaLogout" commandName="Usuario" method="POST">
+                        <span class="nav navbar-nav">  <button class="btn navbar-btn">Logout</button></span>
+                    </form:form>
+                </c:otherwise> 
+            </c:choose>
+        </div>
+    </div>
+</nav>
+

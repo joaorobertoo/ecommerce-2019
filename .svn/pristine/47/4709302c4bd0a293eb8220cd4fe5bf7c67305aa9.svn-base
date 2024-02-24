@@ -1,0 +1,55 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>   
+    <head>
+        <%@include file="/WEB-INF/jsp/estrutura/ImportBot.jsp"%>  
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/comprarProdutos.css"/>
+    </head>
+
+    <body>
+        <div>
+
+            <%@include file="/WEB-INF/jsp/estrutura/header.jsp"%>
+            <div class="container conteudo" >
+
+                <div class="sidenav">
+                    <h3><b>categorias</b></h3>
+                    <jsp:useBean id="dao2" class="DAO.DAOCategoria">
+                        <c:forEach var="categoria" items="${dao2.retornaCategorias()}">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="${categoria.idCategoria}" id="${categoria.nomeCategoria}">
+                                <label><c:out escapeXml="false" value="${categoria.nomeCategoria}"></c:out></label>
+                                </div>
+                        </c:forEach>
+                    </jsp:useBean>
+                </div>
+
+                <div class="restante">
+                    <h2>Comprar <b>Produtos</b></h2>
+
+                    <div class="carousel">
+                        <jsp:useBean id="dao" class="DAO.DAOProduto">
+                            <c:forEach var="produto" items="${dao.obterProdutos()}">
+                                <div class="productbox col-md-3">
+                                    <div class="thumb-wrapper">
+                                        <div class="img-box">
+                                            <img id="imagem" src="RecuperarImagem?codigo=${produto.codigo}"> 
+                                        </div>
+                                        <div class="thumb-content">
+                                            <h4><c:out escapeXml="false" value="${produto.nomeProduto}"></c:out></h4>
+                                            <p class="item-price"> <span>$<c:out escapeXml="false" value="${produto.preco}"></c:out></span></p>
+
+                                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                            </div>						
+                                        </div>
+                                    </div>
+                            </c:forEach>
+                        </jsp:useBean>
+                    </div>
+
+                </div>
+            </div>
+            <%@include file="/WEB-INF/jsp/estrutura/footer.jsp"%>   
+        </div>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+package Controllers;
+
+import DAO.DAOUsuario;
+import Mapeamentos.Usuario;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import org.springframework.stereotype.Controller;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class UsuariosController {
+
+    @RequestMapping("cadastroUsuarios")
+    public String CarregaCadastro(Model model) {
+        model.addAttribute("Usuario", new Usuario());
+        return "cadastroUsuarios";
+    }
+
+    @RequestMapping("salvarUsuario")
+    public String salvarUsuario(@ModelAttribute("Usuario") Usuario usuario, HttpServletRequest request, Model model) {
+        DAOUsuario dao = new DAOUsuario();
+        Usuario user = dao.verificaCpf(usuario);
+        Usuario user1 = dao.verificaEmail(usuario);
+
+        if (user != null) {
+            String str = "cpf ja existente!";
+            model.addAttribute("str", str);
+            System.out.println("cpf ja existente");
+            return "cadastroUsuarios";
+        }
+
+        if (user1 != null) {
+            String str1 = "email ja existente!";
+            model.addAttribute("str1", str1);
+            System.out.println("email ja existente");
+            return "cadastroUsuarios";
+        }
+
+        if (dao.salvarUsuario(usuario)) {
+
+//            String str = "sucesso!";
+//            model.addAttribute("str", str);
+            return "redirect:login";
+        } else {
+//            String str = "Erro!";
+//            model.addAttribute("str", str);
+            return "cadastroUsuarios";
+        }
+
+    }
+
+    @RequestMapping("login")
+    public String CarregaLogin(Model model) {
+        model.addAttribute("Usuario", new Usuario());
+        return "login";
+    }
+
+    @RequestMapping("efetuaLogin")
+    public String efetuaLogin(@ModelAttribute("Usuario") Usuario usuario, BindingResult result, HttpSession session, HttpServletRequest request, Model model) {
+        DAOUsuario dao = new DAOUsuario();
+        Usuario user = dao.buscarLogin(usuario);
+
+        if (user != null) {
+            session.setAttribute("usuarioLogado", user);
+            if (user.isAdmin()) {
+                return "listaProdutos";
+            } else {
+                return "index";
+            }
+
+        } else {
+            return "login";
+        }
+    }
+
+    @RequestMapping("efetuaLogout")
+    public String efetuaLogout(@ModelAttribute("Usuario") Usuario usuario, BindingResult result, HttpSession session, HttpServletRequest request, Model model) {
+        session.removeAttribute("usuarioLogado");
+        //String mensagem = "deslogado!";
+        //model.addAttribute("mensagem", mensagem);
+        return "index";
+    }
+
+}

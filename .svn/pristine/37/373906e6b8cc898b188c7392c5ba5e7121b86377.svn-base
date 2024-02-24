@@ -1,0 +1,39 @@
+b {
+	color: #ffc000;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+}
+a{
+    color:#000;
+}
+
+.btn{
+    color: #333;
+    border-radius: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-top: 5px;
+    line-height: 16px;
+}
+
+.navbar-btn{
+    color:#ffffff;
+}
+.navbar-btn.btn:hover{
+    color:#ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus{
+    background-color: #ffc000;
+}
+
+.btn-danger:hover{
+    background-color:red ;
+}
+

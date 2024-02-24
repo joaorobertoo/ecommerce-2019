@@ -1,0 +1,25 @@
+
+$(document).ready(function(){
+    
+    
+    $("#salvarProduto").submit(function(e){
+        
+        
+        if($("#codigo").val()==null) {
+            $("#codigo").css("border-color", "red");
+            alert("Insira o codigo do produto!");
+            e.preventDefault(); 
+        }       
+        if($("#nomeProduto").val()==null) {
+            $("#nomeProduto").css("border-color", "red");
+            alert("Insira o nome do produto!");
+            e.preventDefault(); 
+        }
+        if($("#preco").val()==null) {
+            $("#preco").css("border-color", "red");
+            alert("Insira o preco do produto!");
+            e.preventDefault(); 
+        }
+    });
+    
+    });

@@ -1,0 +1,10 @@
+
+package DAO;
+
+import Mapeamentos.Usuario;
+import java.math.BigDecimal;
+
+
+public class DAOUsuario extends DAOGenerico<Usuario, BigDecimal>{
+    
+}

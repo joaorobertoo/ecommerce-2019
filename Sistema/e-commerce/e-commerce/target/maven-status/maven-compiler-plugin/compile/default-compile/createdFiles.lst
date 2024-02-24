@@ -1,0 +1,16 @@
+Controllers\ComprasController.class
+Controllers\UsuariosController.class
+DAO\DAOGenerico.class
+DAO\InterfaceDAOGenerico.class
+Controllers\IndexController.class
+Mapeamentos\Produto.class
+Mapeamentos\Compra.class
+Mapeamentos\HibernateUtil.class
+DAO\DAOUsuario.class
+Controllers\AutorizadorInterceptor.class
+Mapeamentos\Usuario.class
+DAO\DAOProduto.class
+Mapeamentos\Categoria.class
+Controllers\ProdutosController.class
+DAO\DAOCategoria.class
+DAO\DAOCompra.class

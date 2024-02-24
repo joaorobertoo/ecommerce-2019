@@ -1,0 +1,17 @@
+$(document).ready(function () {
+
+    $('#produtos').dataTable({
+        "pagingType": "full_numbers",
+        "ajax": "grid2",
+        "columns": [
+            {"data":"dataCompra"},
+            {"data": "nomeProduto"},
+            {"data": "nomeCategoria"},
+            {"data": "quantidadeCompra"},
+            {"data": "valor"},          
+            {"data": "visualizar"}
+
+        ]
+    });
+
+});

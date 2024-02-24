@@ -1,0 +1,14 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>   
+    <head>
+        <%@include file="/WEB-INF/jsp/estrutura/ImportBot.jsp"%>       
+    </head>
+
+    <body>
+        <%@include file="/WEB-INF/jsp/estrutura/header.jsp"%>
+        <%@include file="/WEB-INF/jsp/estrutura/footer.jsp"%>
+        <%@include file="/WEB-INF/jsp/estrutura/background.jsp"%>
+        
+    </body>
+</html>

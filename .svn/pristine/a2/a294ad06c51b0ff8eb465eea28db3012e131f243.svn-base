@@ -1,0 +1,48 @@
+package Controllers;
+
+import DAO.DAOUsuario;
+import Mapeamentos.Usuario;
+import javax.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+public class LoginController {
+
+    @RequestMapping("login")
+    public String CarregaLogin(Model model) {
+        model.addAttribute("Usuario", new Usuario());
+        return "login";
+    }
+
+    @RequestMapping("efetuaLogin")
+    public String efetuaLogin(@ModelAttribute("Usuario") Usuario usuario, BindingResult result, HttpSession session, HttpServletRequest request, Model model) {
+        DAOUsuario dao = new DAOUsuario();
+        Usuario user = dao.buscarLogin(usuario);
+
+        if (user != null) {
+            session.setAttribute("usuarioLogado", user);
+            if(user.isAdmin())
+                return "listaProdutos";
+            else
+                return "index";
+
+        }                 
+        else {
+            return "login";
+        }
+    }
+
+    @RequestMapping("efetuaLogout")
+    public String efetuaLogout(@ModelAttribute("Usuario") Usuario usuario, BindingResult result, HttpSession session, HttpServletRequest request, Model model) {
+        session.removeAttribute("usuarioLogado");
+        //String mensagem = "deslogado!";
+        //model.addAttribute("mensagem", mensagem);
+        return "index";
+    }
+}

@@ -1,0 +1,20 @@
+package Controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ *
+ * @author jrobe
+ */
+@Controller
+public class IndexController {
+    @RequestMapping("index")
+    public String OlaMundo(Model model){
+        String str= "Hello World!";
+        model.addAttribute("str",str);
+        return "index";
+    }
+    
+}

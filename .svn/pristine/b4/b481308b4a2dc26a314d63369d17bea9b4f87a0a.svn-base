@@ -1,0 +1,12 @@
+$(document).ready(function(){
+    
+//    $("efetuaLogin").submit(function(e){
+//        if(sucess()){
+//            alert("login efetuado com sucesso!");
+//        }
+//        else
+//            alert("login ou senha inválidos!");
+//    });
+    
+    
+});

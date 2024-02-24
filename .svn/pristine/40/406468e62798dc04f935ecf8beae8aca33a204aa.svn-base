@@ -1,0 +1,6 @@
+DAO\DAOGenerico.class
+DAO\InterfaceDAOGenerico.class
+Mapeamentos\Produto.class
+Mapeamentos\Compra.class
+Mapeamentos\HibernateUtil.class
+Mapeamentos\Categoria.class
